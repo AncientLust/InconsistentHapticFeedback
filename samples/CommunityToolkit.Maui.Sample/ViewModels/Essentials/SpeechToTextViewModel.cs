@@ -87,6 +87,8 @@ public partial class SpeechToTextViewModel : BaseViewModel
 	{
 		CanStartListenExecute = false;
 
+		HapticFeedback.Default.Perform(HapticFeedbackType.Click);
+		
 		try
 		{
 			var isGranted = await speechToText.RequestPermissions(cancellationToken);
@@ -139,6 +141,8 @@ public partial class SpeechToTextViewModel : BaseViewModel
 		CanStartListenExecute = false;
 		CanStopListenExecute = true;
 
+		HapticFeedback.Default.Perform(HapticFeedbackType.Click);
+		
 		var isGranted = await speechToText.RequestPermissions(cancellationToken);
 		if (!isGranted)
 		{
